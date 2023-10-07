@@ -1,0 +1,85 @@
+https://youtu.be/8vkzpvia4mg?si=Hq0-jMphF-ns6jfj
+
+
+Download links and Linux commands used in the video:
+
+
+02:30 BigTreeTech Github for OS image download
+https://github.com/bigtreetech/CB1
+(Download the larger OS image which is over 1GB)
+
+02:50 Raspberry Imager download
+https://www.raspberrypi.com/software/
+
+04:30 Download SSH client (any of these or just use Windows SSH)
+Putty: https://www.putty.org/
+MobaXTerm: https://mobaxterm.mobatek.net/
+
+05:24 Update git:
+sudo apt-get install git -y
+
+05:35 Install and start KIAUH
+cd ~ && git clone https://github.com/th33xitus/kiauh.git
+./kiauh/kiauh.sh
+
+09:05
+ls /boot
+sudo nano /boot/system.cfg
+
+09:32
+sudo reboot
+
+10:38 Create Klipper Screen config file
+sudo cat>KlipperScreen.conf
+(Ctrl-D to exit)
+
+10:50 Edit the content of new file KlipperScreen.conf
+sudo nano KlipperScreen.conf
+
+Copy and paste all these lines to the file:
+
+[main]
+job_complete_timeout: 0
+job_error_timeout: 0
+#default_printer: Printer1
+use_default_menu: True
+
+[printer Printer1]
+moonraker_host: localhost
+moonraker_port: 7125
+moonraker_api_key: False
+
+[printer Printer2]
+moonraker_host: localhost
+moonraker_port: 7126
+moonraker_api_key: False
+
+[printer Printer3]
+moonraker_host: localhost
+moonraker_port: 7127
+moonraker_api_key: False
+ 
+(Ctrl-X to exit, Y, then Enter to overwrite the file)
+
+
+
+11:12 Restart Klipper screen
+sudo service KlipperScreen restart
+
+
+12:28 Example printer.cfg from Klipper github
+https://github.com/Klipper3d/klipper/tree/master/config
+
+15:06 Change Printer name on touch screen
+sudo nano KlipperScreen.conf
+(Ctrl-X to exit, Y, then Enter to overwrite the file)
+
+15:20 Restart Klipper Screen
+sudo service KlipperScreen restart
+
+19:17 & 19:46 Show the port of the printer
+cd/dev/serial/by-path
+ls -l
+
+(or just type from your home directory or current location)
+ls /dev/serial/by-path
